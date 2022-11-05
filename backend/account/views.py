@@ -158,7 +158,7 @@ class AllotedSeat(APIView):
         application= Application.objects.filter(id=num)
         application.update(is_alloted = True ,alloted_slot = id)
         seat =  slot.objects.filter(id=id)
-        print(application[0].user.id)
+        
         seat.update( is_available=False , assigned_user=application[0].user)
         return Response(200)
 
